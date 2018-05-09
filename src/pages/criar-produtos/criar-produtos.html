@@ -1,0 +1,71 @@
+<!--
+  Generated template for the CriarProdutosPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Cadastrar Produto</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <form [formGroup]="formProduto" (ngSubmit)="criarProduto(); $event.preventDefault()">
+
+    <ion-list>
+
+      <ion-item *ngIf="error">
+        <p>Os dados informados estão incorretos</p>    
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Nome</ion-label>
+        <ion-input type="text" formControlName="nome"></ion-input>
+      </ion-item>
+
+      <ion-item *ngIf="formProduto.get('nome').errors && formProduto.get('nome').dirty" no-lines>
+          <p *ngIf="formProduto.get('nome').hasError('required')">Campo Obrigatório</p>  
+      </ion-item>
+
+      <ion-item>
+          <ion-label floating>Quantidade</ion-label>
+          <ion-input type="text" formControlName="quantidade"></ion-input>
+      </ion-item>
+
+      <ion-item *ngIf="formProduto.get('quantidade').errors && formProduto.get('quantidade').dirty" no-lines>
+          <p *ngIf="formProduto.get('quantidade').hasError('required')">Campo Obrigatório</p>  
+      </ion-item>
+
+      <ion-item>
+          <ion-label floating>Valor</ion-label>
+          <ion-input type="text" formControlName="valor"></ion-input>
+      </ion-item>
+
+      <ion-item *ngIf="formProduto.get('valor').errors && formProduto.get('valor').dirty" no-lines>
+          <p *ngIf="formProduto.get('valor').hasError('required')">Campo Obrigatório</p>  
+      </ion-item>
+
+      <ion-item>
+          <ion-label floating>Marca</ion-label>
+          <ion-input type="text" formControlName="marca"></ion-input>
+      </ion-item>  
+
+      <ion-item *ngIf="formProduto.get('marca').errors && formProduto.get('marca').dirty" no-lines>
+          <p *ngIf="formProduto.get('marca').hasError('required')">Campo Obrigatório</p>  
+      </ion-item>  
+      
+      <ion-item no-lines>          
+      </ion-item>
+
+    </ion-list>   
+    
+    <button ion-button round full type="submit" [disabled]="formProduto.invalid">Cadastrar</button>
+
+  </form>
+
+</ion-content>
